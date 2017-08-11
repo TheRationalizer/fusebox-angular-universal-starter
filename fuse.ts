@@ -10,7 +10,7 @@ import {
   RawPlugin,
   SassPlugin,
   Sparky,
-  UglifyESPlugin
+  QuantumPlugin
 } from 'fuse-box';
 import { readFileSync, writeFileSync } from 'fs';
 import './tools/tasks';
@@ -55,7 +55,7 @@ const appOptions = {
     : { project: true, vendor: true, inline: true },
   plugins: [
     EnvPlugin(ENV_CONFIG_INSTANCE),
-    isProdBuild && UglifyESPlugin(),
+    QuantumPlugin({ uglify: false, target: 'browser' }),
     ...baseOptions.plugins
   ]
 }
